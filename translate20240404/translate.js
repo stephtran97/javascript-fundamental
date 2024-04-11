@@ -1,5 +1,5 @@
 let a = "Hoc JS don gian";
-const arr = ['Hoc','JS','don gian']
+const arr = ["Hoc", "JS", "don gian"];
 
 const obj = {
   hoc: "learn",
@@ -19,39 +19,14 @@ const translate = (word, language) => {
   const dictionary = globalDictionary[language];
   //  Cach 1
   if (dictionary.hasOwnProperty(word)) {
-    return dictionary[word]}
-    else if (dictionary.hasOwnProperty((word.toLowerCase()))){
-      return toCapitalize(dictionary[word.toLowerCase()])
-    }
-    else return word;
-
-  // Cach 2
-  // const keys = Object.keys(dictionary);
-  // keys.forEach(key=>{
-  //   const capitalizedKey = toCapitalize(key);
-  //   const capitalizedValue = toCapitalize(dictionary[key])
-    
-  //   if (str.includes(capitalizedKey)) {
-  //     result = result.replaceAll(capitalizedKey, capitalizedValue);
-  //   } else {
-  //     result = result.replaceAll(key, dictionary[key]);
-  //   }
-  // })
-
-  // Cach 3
-  // const entries = Object.entries(dictionary);
-  // entries.forEach(entry=>{
-  //   const capitalizedKey = toCapitalize(entry[0]);
-  //   const capitalizedValue = toCapitalize(entry[1])
-    
-  //   if (str.includes(capitalizedKey)) {
-  //     result = result.replaceAll(capitalizedKey, capitalizedValue);
-  //   } else {
-  //     result = result.replaceAll(entry[0], entry[1]);
-  //   }
-  // })
-  // return result;
+    return dictionary[word];
+  } else if (dictionary.hasOwnProperty(word.toLowerCase())) {
+    return toCapitalize(dictionary[word.toLowerCase()]);
+  } else return word;
 };
 
-const result = arr.reduce((acc,curr)=>acc+=` ${translate(curr,'en')}`,'')
-console.log(result)
+const result = arr.reduce(
+  (acc, curr) => (acc += ` ${translate(curr, "en")}`),
+  ""
+);
+console.log(result);
