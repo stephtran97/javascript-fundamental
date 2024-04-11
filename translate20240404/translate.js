@@ -1,4 +1,6 @@
 let a = "Hoc JS don gian";
+const arr = ['Hoc','JS','don gian']
+
 const obj = {
   hoc: "learn",
   JS: "JavaScript",
@@ -13,20 +15,15 @@ const toCapitalize = (str) => {
   return str[0].toUpperCase() + str.substring(1);
 };
 
-const translate = (str, language) => {
-  let result = str;
+const translate = (word, language) => {
   const dictionary = globalDictionary[language];
   //  Cach 1
-  for (let key in dictionary) {
-    const capitalizedKey = toCapitalize(key);
-    const capitalizedValue = toCapitalize(dictionary[key])
-
-    if (str.includes(capitalizedKey)) {
-      result = result.replaceAll(capitalizedKey, capitalizedValue);
-    } else {
-      result = result.replaceAll(key, dictionary[key]);
+  if (dictionary.hasOwnProperty(word)) {
+    return dictionary[word]}
+    else if (dictionary.hasOwnProperty((word.toLowerCase()))){
+      return toCapitalize(dictionary[word.toLowerCase()])
     }
-  }
+    else return word;
 
   // Cach 2
   // const keys = Object.keys(dictionary);
@@ -53,6 +50,8 @@ const translate = (str, language) => {
   //     result = result.replaceAll(entry[0], entry[1]);
   //   }
   // })
-  return result;
+  // return result;
 };
-console.log(translate(a, "en"));
+
+const result = arr.reduce((acc,curr)=>acc+=` ${translate(curr,'en')}`,'')
+console.log(result)
