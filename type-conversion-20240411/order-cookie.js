@@ -50,7 +50,10 @@ const getFromCookies = (key) => {
   return JSON.parse(cookie);
 };
 const calculateTotal = (orders) => {
-  return orders.reduce((acc, cur) => (acc += cur.price * cur.amount), 0);
+  return orders.reduce(
+    (acc, cur) => (acc += Number(cur.price) * Number(cur.amount)),
+    0
+  );
 };
 
 saveToCookies(orders);
