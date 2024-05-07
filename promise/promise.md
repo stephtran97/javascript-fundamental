@@ -1,5 +1,5 @@
 # Promise
-* Promise is used to execute the asynchoronous action
+* Promise is used to execute the asynchronous action
 * Promise have 3 states: pending, fulfilled or rejected:
    - pending: async function is still doing and no judgements can be made about promise's outcome
    - fulfilled: async operation has been succeeded 
@@ -55,6 +55,29 @@
 ```
 
 ## async/await syntax ES6
-- ES6 provide a syntax to replace the then() method: async/await
-
-
+- ES6 provide a syntax to replace the then() method: async/await - this will make the async code looks like synchronous code
+   - top level execution:
+     ```
+     // we assume this code runs at top level, inside a module
+      let response = await fetch('/article/promise-chaining/user.json');
+      let user = await response.json();
+      console.log(user);
+     ```
+   - IIFE:
+     ```
+     (async () => {
+     let response = await fetch('/article/promise-chaining/user.json');
+     let user = await response.json();
+     ...
+     })();
+     ```
+  - Error Handling:
+  ```
+  async function f() {
+     try {
+       let response = await fetch('http://no-such-url');
+     } catch(err) {
+       alert(err); // TypeError: failed to fetch
+     }
+  }
+  ```
