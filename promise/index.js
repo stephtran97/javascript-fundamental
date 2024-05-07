@@ -33,7 +33,7 @@ const waitAll = async () => {
     return result;
   } catch (err) {
     console.log(err);
-    return err;
+    throw err;
   }
 };
 console.log(waitAll());
