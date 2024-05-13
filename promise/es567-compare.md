@@ -6,27 +6,91 @@
 
 - arrow function
 
-  > example code
+  >
+
+  ```js
+  const exampleFunction = () => {
+    // do something
+  };
+  ```
 
 - class syntax
 
-  > example code
+  >
+
+  ```js
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    talk() {
+      // do something
+    }
+  }
+  ```
 
 - template literal
 
-  > example code
+  >
 
-- let, const
+  ```js
+  const randomVar = 'this is a random var';
+  const str = `You can embed expression ${
+    1 > 0 ? 'expr' : 'another expr'
+  } and variables inside a string template ${randomVar} `;
+  ```
 
-  > example code
+- let, const: block scope instead of function scope var
+
+  >
+
+  ```js
+  // outer scope
+  // cannot access a and b
+  const f = () => {
+    let a = 1;
+    const b = 2;
+    // we can only access a and b in this block
+    console.log(a); // 1
+    console.log(b); // 2
+  };
+  // cannot access a and b
+  console.log(a); // error
+  console.log(b); // error
+  ```
 
 - spread + rest operator
 
-  > example code
+  >
+
+  ```js
+  const object = {
+    prop1: 1,
+    prop2: 'asdf'
+  };
+  const arr = [1, 2, 34, 5];
+  console.log(...arr); // 1, 2, 34, 5
+  console.log({ ...object });
+  const [a, b, ...rest] = arr;
+  console.log(a); // 1
+  console.log(b); // 2
+  console.log(rest); // [34,5]
+  ```
 
 - destructuring
 
-  > example code
+  >
+
+  ```js
+  const object = {
+    prop1: 1,
+    prop2: 'asdf'
+  };
+  const { prop1, prop2 } = object;
+  console.log(prop1); // 1
+  console.log(prop2); // asdf
+  ```
 
 - promises
 
