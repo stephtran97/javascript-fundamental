@@ -94,34 +94,103 @@
 
 - promises
 
-  > example code
+  >
+
+  ```js
+  const pr = new Promise((resolve, reject) => {
+    const randN = Math.random();
+    if (randN > 0.5) resolve(randN);
+    reject({ msg: 'Random number is lower than 0.5' });
+  });
+  pr.then((res) => {
+    console.log('Result >>', res);
+  }).catch((err) => {
+    console.log(err);
+  });
+  ```
 
 - modules import export
 
-  > example code
+  >
+
+  ```jsx
+  import React from 'React';
+  const App = () => {
+    return <>This is an example</>;
+  };
+  export default App;
+  ```
 
 - default params
 
-  > example code
+  >
+
+  ```js
+  const testFunc = (a, b = 1) => {
+    return a * b;
+  };
+  console.log(testFunc(8)); // 8
+  console.log(testFunc(8, 2)); // 16
+  ```
 
 - object literal extensions
-  > example code
+  >
+  ```js
+  const age = 23;
+  const name = 'Stephen';
+  const p = { age, name };
+  console.log(p); // {age:23, name:'Stephen'}
+  ```
 
 ## ES7 2016:
 
 - array.includes
 
-  > example code
+  >
+
+  ```js
+  const arr = [1, 2, 34, 5];
+  console.log(arr.includes(34)); // true
+  ```
 
 - async keyword
 
-  > example code
+  >
+
+  ```js
+  const fetchData = async () => {
+    const res = await fetch('https://www.google.com');
+    // Consume the promise ...
+  };
+  ```
 
 - object.values
 
-  > example code
+  >
+
+  ```js
+  const object = {
+    prop1: 1,
+    prop2: 'string'
+  };
+  console.log(Object.values(object)); // [1,'string']
+  ```
 
 - object.entries
-  > example code
+
+  >
+
+  ```js
+  const object = {
+    prop1: 1,
+    prop2: 'string'
+  };
+  console.log(Object.entries(object)); // [['prop1',1],['prop2','string']]
+  ```
+
 - exponentiation operator '\*\*'
-  > example code
+  >
+  ```js
+  const x = 2 ** 3;
+  console.log(x === 2 * 2 * 2); // true
+  ```

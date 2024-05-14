@@ -46,3 +46,13 @@ console.log(waitAll());
 // 2. So sánh ES5, ES6, ES7
 // 3. Mô tả Try catch hoat dong nhu the nao trong all function (luong xu ly loi ntn: throw Error)
 // 4. BT thêm: Tìm hiểu ở các dự án Git/cty: Cấu hình axios; xử lý try catch (handle error); handle data theo status code;
+const pr = new Promise((resolve, reject) => {
+  const randN = Math.random();
+  if (randN > 0.5) resolve(randN);
+  reject({ msg: 'Random number is lower than 0.5' });
+});
+pr.then((res) => {
+  console.log('Result >>', res);
+}).catch((err) => {
+  console.log(err);
+});
